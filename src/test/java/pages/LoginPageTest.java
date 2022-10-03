@@ -18,7 +18,6 @@ public class LoginPageTest extends Base {
 
     @Test
     public void validateLogin(){
-        driver.findElement(By.id("wzrk-cancel")).click();
         WebElement login = driver.findElement(By.xpath("//div[@id='SignIn']"));
         actions.moveToElement(login).click().build().perform();
         driver.findElement(By.id("loginIdText")).sendKeys("prueba");
@@ -28,7 +27,6 @@ public class LoginPageTest extends Base {
 
     @Test
     public void validateLoginWithFacebook(){
-        driver.findElement(By.id("wzrk-cancel")).click();
         WebElement login = driver.findElement(By.xpath("//div[@id='SignIn']"));
         actions.moveToElement(login).click().build().perform();
         driver.findElement(By.id("loginFacebook")).click();
@@ -44,7 +42,6 @@ public class LoginPageTest extends Base {
 
     @Test
     public void validateLoginWithGoogle() {
-        driver.findElement(By.id("wzrk-cancel")).click();
         WebElement login = driver.findElement(By.xpath("//div[@id='SignIn']"));
         actions.moveToElement(login).click().build().perform();
         driver.findElement(By.id("loginGoogle")).click();

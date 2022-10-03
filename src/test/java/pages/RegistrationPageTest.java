@@ -12,7 +12,6 @@ public class RegistrationPageTest extends Base {
     @BeforeMethod
     public void browserSetup() {
         initialization();
-        driver.findElement(By.id("wzrk-cancel")).click();
     }
 
     @Test
@@ -24,9 +23,9 @@ public class RegistrationPageTest extends Base {
         driver.findElement(By.id("emailIdSignUp")).sendKeys("prueba");
         driver.findElement(By.id("passwordSignUp")).sendKeys("prueba");
         driver.findElement(By.id("nameSignUp")).sendKeys("prueba");
-        WebElement multiDropDown = driver.findElement(By.id("mobileIsdSignUp"));
-        Select obj1 = new Select(multiDropDown);
-        obj1.selectByValue("1");
+        WebElement mobileCodeDropDown = driver.findElement(By.id("mobileIsdSignUp"));
+        Select mobileCode = new Select(mobileCodeDropDown);
+        mobileCode.selectByValue("1");
         driver.findElement(By.id("mobileNoSignUp")).sendKeys("prueba");
         driver.findElement(By.id("signUpValidate")).click();
     }

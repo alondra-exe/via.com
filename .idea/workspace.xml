@@ -4,23 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be438992-b42c-4d74-b237-57dac93ff2f8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/via/test/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/base/Base.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/config/settings.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/FlightPageTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/LoginPageTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/RegistrationPageTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/SearchFlightPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/util/ExcelReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/userExcel.xlsx" afterDir="false" />
+    <list default="true" id="be438992-b42c-4d74-b237-57dac93ff2f8" name="Changes" comment="FlightPageTest, SearchFlightPage, BookFlightPage">
+      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/BookFlightPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/SearchFlightPageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/base/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/Base.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/FlightPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/FlightPageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/LoginPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/LoginPageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/RegistrationPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/RegistrationPageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/SearchFlightPage.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +52,42 @@
       <recent name="H:\Via.com\via-testing\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.FlightPageTest.validateMultiCityFlight">
+  <component name="RunManager" selected="TestNG.FlightPageTest.validateSearchOneWayFlight">
+    <configuration name="BookFlightPage.validateTravellersDetailsPage" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="via-testing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pages.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pages" />
+      <option name="MAIN_CLASS_NAME" value="pages.BookFlightPage" />
+      <option name="METHOD_NAME" value="validateTravellersDetailsPage" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FlightPageTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="via-testing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pages.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pages" />
+      <option name="MAIN_CLASS_NAME" value="pages.FlightPageTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FlightPageTest.validateMultiCityFlight" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="via-testing" />
       <extension name="coverage">
@@ -114,49 +142,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SearchFlightPage.validateBookFlight" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="via-testing" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pages.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pages" />
-      <option name="MAIN_CLASS_NAME" value="pages.SearchFlightPage" />
-      <option name="METHOD_NAME" value="validateBookFlight" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SearchFlightPage.validateModifyFlightSearch" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="via-testing" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pages.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pages" />
-      <option name="MAIN_CLASS_NAME" value="pages.SearchFlightPage" />
-      <option name="METHOD_NAME" value="validateModifyFlightSearch" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.FlightPageTest.validateSearchOneWayFlight" />
         <item itemvalue="TestNG.FlightPageTest.validateMultiCityFlight" />
         <item itemvalue="TestNG.FlightPageTest.validateSearchRoundTripFlight" />
-        <item itemvalue="TestNG.FlightPageTest.validateSearchOneWayFlight" />
-        <item itemvalue="TestNG.SearchFlightPage.validateModifyFlightSearch" />
-        <item itemvalue="TestNG.SearchFlightPage.validateBookFlight" />
+        <item itemvalue="TestNG.FlightPageTest" />
+        <item itemvalue="TestNG.BookFlightPage.validateTravellersDetailsPage" />
       </list>
     </recent_temporary>
   </component>
@@ -169,6 +161,14 @@
       <option name="presentableId" value="Default" />
       <updated>1664573241512</updated>
     </task>
+    <task id="LOCAL-00001" summary="LoginPageTest, RegistrationPageTest and FlightPageTest">
+      <created>1664830443632</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1664830443632</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -181,5 +181,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="LoginPageTest, RegistrationPageTest and FlightPageTest" />
+    <MESSAGE value="FlightPageTest, SearchFlightPage, BookFlightPage" />
+    <option name="LAST_COMMIT_MESSAGE" value="FlightPageTest, SearchFlightPage, BookFlightPage" />
   </component>
 </project>

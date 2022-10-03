@@ -1,6 +1,7 @@
 package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,6 +11,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.FlightPageTest;
+import pages.SearchFlightPageTest;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -23,6 +26,8 @@ public abstract class Base {
     public static Actions actions;
     public static JavascriptExecutor js;
     public static WebDriverWait wait;
+    public static FlightPageTest flightPageTest;
+    public static SearchFlightPageTest searchFlightPageTest;
 
     public Base() {
         properties = new Properties();
@@ -60,9 +65,12 @@ public abstract class Base {
         }
         driver.manage().window().maximize();
         driver.get(properties.getProperty("url"));
+        driver.findElement(By.id("wzrk-cancel")).click();
         actions = new Actions(driver);
         js = (JavascriptExecutor)driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        flightPageTest = new FlightPageTest();
+        searchFlightPageTest = new SearchFlightPageTest();
     }
 
     public static void closeInitialization() {
