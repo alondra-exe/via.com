@@ -19,31 +19,31 @@ public class BookHotelPageTest extends Base {
     }
 
     @Test
-    public void validateGuestDetails(){
+    public void validateGuestDetails() {
         WebElement titleDropDown = driver.findElement(By.xpath("//div[@id='room1Adult1']/div/div[1]/div[1]/label/select"));
         Select title = new Select(titleDropDown);
-        title.selectByValue("Mr");
-        driver.findElement(By.xpath("//div[@id='room1Adult1']/div/div[1]/div[2]/input")).sendKeys("prueba");
-        driver.findElement(By.xpath("//div[@id='room1Adult1']/div/div[1]/div[3]/input")).sendKeys("prueba");
-        driver.findElement(By.xpath("//div[@id='room1Adult1']/div/div[1]/div[4]/input")).sendKeys("ABCPL1234H");
+        title.selectByValue(properties.getProperty("title"));
+        driver.findElement(By.xpath("//div[@id='room1Adult1']/div/div[1]/div[2]/input")).sendKeys(properties.getProperty("firstname"));
+        driver.findElement(By.xpath("//div[@id='room1Adult1']/div/div[1]/div[3]/input")).sendKeys(properties.getProperty("lastname"));
+        driver.findElement(By.xpath("//div[@id='room1Adult1']/div/div[1]/div[4]/input")).sendKeys(properties.getProperty("pannumber"));
         WebElement passportNationalityDropDown = driver.findElement(By.id("Room0AdultPassportNAT0"));
         Select passportNationality = new Select(passportNationalityDropDown);
-        passportNationality.selectByValue("CA");
-        driver.findElement(By.id("Room0AdultPassportNUM0")).sendKeys("LB000375");
+        passportNationality.selectByValue(properties.getProperty("nationality"));
+        driver.findElement(By.id("Room0AdultPassportNUM0")).sendKeys(properties.getProperty("passportnumber"));
         WebElement dayExpiryDropDown = driver.findElement(By.id("room1Adult1Pday"));
         Select dayExpiry = new Select(dayExpiryDropDown);
-        dayExpiry.selectByValue("07");
+        dayExpiry.selectByValue(properties.getProperty("dayexpiry"));
         WebElement monthExpiryDropDown = driver.findElement(By.id("room1Adult1Pmonth"));
         Select monthExpiry = new Select(monthExpiryDropDown);
-        monthExpiry.selectByIndex(12);
+        monthExpiry.selectByIndex(Integer.parseInt(properties.getProperty("monthexpiry")));
         WebElement yearExpiryDropDown = driver.findElement(By.id("room1Adult1Pyear"));
         Select yearExpiry = new Select(yearExpiryDropDown);
-        yearExpiry.selectByValue("2033");
+        yearExpiry.selectByValue(properties.getProperty("yearexpiry"));
         WebElement mobileCodeDropDown = driver.findElement(By.id("ISDCodeTr"));
         Select mobileCode = new Select(mobileCodeDropDown);
-        mobileCode.selectByValue("1");
-        driver.findElement(By.id("contactMobile")).sendKeys("2267055077");
-        driver.findElement(By.id("contactEmail")).sendKeys("testing.users.email@gmail.com");
+        mobileCode.selectByValue(properties.getProperty("numbercode"));
+        driver.findElement(By.id("contactMobile")).sendKeys(properties.getProperty("phonenumber"));
+        driver.findElement(By.id("contactEmail")).sendKeys(properties.getProperty("email"));
         driver.findElement(By.id("read_terms_label")).click();
         driver.findElement(By.id("makePayCTA")).click();
     }

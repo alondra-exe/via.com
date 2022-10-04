@@ -23,7 +23,7 @@ public class HotelPageTest extends Base {
     public void validateSearchHotel() {
         driver.navigate().to(properties.getProperty("urlHotels"));
         WebElement destination = driver.findElement(By.id("destination"));
-        actions.moveToElement(destination).click().sendKeys("London,United Kingdom").pause(Duration.ofSeconds(5)).click().keyDown(Keys.DOWN).keyDown(Keys.ENTER).build().perform();
+        actions.moveToElement(destination).click().sendKeys(properties.getProperty("destination")).pause(Duration.ofSeconds(5)).click().keyDown(Keys.DOWN).keyDown(Keys.ENTER).build().perform();
         driver.findElement(By.xpath("/html/body/div[3]/div[3]/div/form/div[3]/div/div[2]/div/div")).click();
         WebElement checkIn = driver.findElement(By.xpath("//div[@id='depart-cal']/div[3]//div[text()='24']"));
         wait.until(ExpectedConditions.visibilityOf(checkIn)).click();
@@ -35,10 +35,10 @@ public class HotelPageTest extends Base {
         driver.findElement(By.xpath("//div[@class='roomConfigFooter']//div[@class='done']")).click();
         WebElement nationalityDropDown = driver.findElement(By.id("nationalityCountry"));
         Select nationality = new Select(nationalityDropDown);
-        nationality.selectByValue("165167");
+        nationality.selectByValue(properties.getProperty("nationalityCode"));
         WebElement residenceDropDown = driver.findElement(By.id("residenceCountry"));
         Select residence = new Select(residenceDropDown);
-        residence.selectByValue("165167");
+        residence.selectByValue(properties.getProperty("residence"));
         driver.findElement(By.xpath("/html/body/div[3]/div[3]/div/form/div[3]/div/div[10]/div[3]")).click();
     }
 
