@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be438992-b42c-4d74-b237-57dac93ff2f8" name="Changes" comment="FlightPageTest, SearchFlightPage, BookFlightPage">
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/BookFlightPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/SearchFlightPageTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/Base.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/BookFlightPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/BookFlightPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/FlightPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/FlightPageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/LoginPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/LoginPageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/RegistrationPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/RegistrationPageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/SearchFlightPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/SearchFlightPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/SearchFlightPageTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +47,25 @@
       <recent name="H:\Via.com\via-testing\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.FlightPageTest.validateSearchOneWayFlight">
+  <component name="RunManager" selected="TestNG.BookFlightPage.ValidateReviewIntinerary">
+    <configuration name="BookFlightPage.ValidateReviewIntinerary" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="via-testing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pages.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pages" />
+      <option name="MAIN_CLASS_NAME" value="pages.BookFlightPage" />
+      <option name="METHOD_NAME" value="ValidateReviewIntinerary" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BookFlightPage.validateTravellersDetailsPage" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="via-testing" />
       <extension name="coverage">
@@ -65,23 +78,6 @@
       <option name="MAIN_CLASS_NAME" value="pages.BookFlightPage" />
       <option name="METHOD_NAME" value="validateTravellersDetailsPage" />
       <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FlightPageTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="via-testing" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pages.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pages" />
-      <option name="MAIN_CLASS_NAME" value="pages.FlightPageTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
@@ -124,7 +120,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FlightPageTest.validateSearchRoundTripFlight" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="SearchFlightPageTest.validateBookFlight" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="via-testing" />
       <extension name="coverage">
         <pattern>
@@ -133,8 +129,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="pages" />
-      <option name="MAIN_CLASS_NAME" value="pages.FlightPageTest" />
-      <option name="METHOD_NAME" value="validateSearchRoundTripFlight" />
+      <option name="MAIN_CLASS_NAME" value="pages.SearchFlightPageTest" />
+      <option name="METHOD_NAME" value="validateBookFlight" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -144,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.BookFlightPage.ValidateReviewIntinerary" />
+        <item itemvalue="TestNG.BookFlightPage.validateTravellersDetailsPage" />
+        <item itemvalue="TestNG.SearchFlightPageTest.validateBookFlight" />
         <item itemvalue="TestNG.FlightPageTest.validateSearchOneWayFlight" />
         <item itemvalue="TestNG.FlightPageTest.validateMultiCityFlight" />
-        <item itemvalue="TestNG.FlightPageTest.validateSearchRoundTripFlight" />
-        <item itemvalue="TestNG.FlightPageTest" />
-        <item itemvalue="TestNG.BookFlightPage.validateTravellersDetailsPage" />
       </list>
     </recent_temporary>
   </component>
@@ -168,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664830443632</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="FlightPageTest, SearchFlightPage, BookFlightPage">
+      <created>1664837625076</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664837625076</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

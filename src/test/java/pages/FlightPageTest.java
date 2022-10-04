@@ -27,7 +27,6 @@ public class FlightPageTest extends Base {
         driver.findElement(By.xpath("//div[@id='round-trip-panel']/div[4]/div[2]/div")).click();
         WebElement departureDate = driver.findElement(By.xpath("//div[@id='depart-cal']/div[4]//div[text()='29']"));
         wait.until(ExpectedConditions.visibilityOf(departureDate)).click();
-        driver.findElement(By.xpath("//div[@class='counter-element adult']/div/div[@class='plus']")).click();
         driver.findElement(By.id("search-flight-btn")).click();
     }
 
@@ -44,7 +43,6 @@ public class FlightPageTest extends Base {
         driver.findElement(By.xpath("//div[@class='element return-element']/div/div[@class='calendar-icon']")).click();
         WebElement returnDate = driver.findElement(By.xpath("//div[@id='return-cal']/div[4]//div[text()='24']"));
         wait.until(ExpectedConditions.visibilityOf(returnDate)).click();
-        driver.findElement(By.xpath("//div[@class='counter-element adult']/div/div[@class='plus']")).click();
         driver.findElement(By.id("search-flight-btn")).click();
     }
 
@@ -64,7 +62,6 @@ public class FlightPageTest extends Base {
         driver.findElement(By.xpath("//div[@id='multi-city-panel']/div[3]/div[3]/div/div")).click();
         WebElement departureDate2 = driver.findElement(By.xpath("//div[@id='depart-cal-1']/div[4]//div[text()='24']"));
         wait.until(ExpectedConditions.visibilityOf(departureDate2)).click();
-        driver.findElement(By.xpath("//div[@class='counter-element adult']/div/div[@class='plus']")).click();
         driver.findElement(By.id("search-flight-btn")).click();
     }
 

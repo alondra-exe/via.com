@@ -42,7 +42,7 @@ public class SearchFlightPageTest extends Base {
 
     @Test
     public void validateBookFlight() {
-        driver.findElement(By.xpath("//div[@id='searchResultContainer']/div[7]/div/div[3]/div[1]/div[3]/div[2]/button")).click();
+        driver.findElement(By.xpath("//div[@class='oneway']/div[5]/div/div/div[2]/button")).click();
     }
 
     @AfterMethod
