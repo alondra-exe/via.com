@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be438992-b42c-4d74-b237-57dac93ff2f8" name="Changes" comment="FlightPageTest, SearchFlightPage, BookFlightPage">
+    <list default="true" id="be438992-b42c-4d74-b237-57dac93ff2f8" name="Changes" comment="FlightPageTest, SearchFlightPageTest, BookFlightPageTest">
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/BookHotelPageTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/HotelPageTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/SearchHotelPageTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/BookFlightPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/BookFlightPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/FlightPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/FlightPageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/base/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/Base.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/config/settings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/config/settings.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/SearchFlightPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/SearchFlightPageTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,8 +50,8 @@
       <recent name="H:\Via.com\via-testing\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.BookFlightPage.ValidateReviewIntinerary">
-    <configuration name="BookFlightPage.ValidateReviewIntinerary" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.BookHotelPageTest.validateReviewItinerary">
+    <configuration name="BookHotelPageTest.validateGuestDetails" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="via-testing" />
       <extension name="coverage">
         <pattern>
@@ -57,8 +60,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="pages" />
-      <option name="MAIN_CLASS_NAME" value="pages.BookFlightPage" />
-      <option name="METHOD_NAME" value="ValidateReviewIntinerary" />
+      <option name="MAIN_CLASS_NAME" value="pages.BookHotelPageTest" />
+      <option name="METHOD_NAME" value="validateGuestDetails" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -66,7 +69,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BookFlightPage.validateTravellersDetailsPage" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="BookHotelPageTest.validateReviewItinerary" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="via-testing" />
       <extension name="coverage">
         <pattern>
@@ -75,8 +78,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="pages" />
-      <option name="MAIN_CLASS_NAME" value="pages.BookFlightPage" />
-      <option name="METHOD_NAME" value="validateTravellersDetailsPage" />
+      <option name="MAIN_CLASS_NAME" value="pages.BookHotelPageTest" />
+      <option name="METHOD_NAME" value="validateReviewItinerary" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -84,7 +87,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FlightPageTest.validateMultiCityFlight" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="HotelPageTest.validateSearchHotel" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="via-testing" />
       <extension name="coverage">
         <pattern>
@@ -93,8 +96,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="pages" />
-      <option name="MAIN_CLASS_NAME" value="pages.FlightPageTest" />
-      <option name="METHOD_NAME" value="validateMultiCityFlight" />
+      <option name="MAIN_CLASS_NAME" value="pages.HotelPageTest" />
+      <option name="METHOD_NAME" value="validateSearchHotel" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -102,7 +105,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FlightPageTest.validateSearchOneWayFlight" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="HotelPageTest.validateSelectRooms" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="via-testing" />
       <extension name="coverage">
         <pattern>
@@ -111,8 +114,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="pages" />
-      <option name="MAIN_CLASS_NAME" value="pages.FlightPageTest" />
-      <option name="METHOD_NAME" value="validateSearchOneWayFlight" />
+      <option name="MAIN_CLASS_NAME" value="pages.HotelPageTest" />
+      <option name="METHOD_NAME" value="validateSelectRooms" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -120,7 +123,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SearchFlightPageTest.validateBookFlight" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="SearchHotelPageTest.validateBookRooms" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="via-testing" />
       <extension name="coverage">
         <pattern>
@@ -129,8 +132,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="pages" />
-      <option name="MAIN_CLASS_NAME" value="pages.SearchFlightPageTest" />
-      <option name="METHOD_NAME" value="validateBookFlight" />
+      <option name="MAIN_CLASS_NAME" value="pages.SearchHotelPageTest" />
+      <option name="METHOD_NAME" value="validateBookRooms" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -140,11 +143,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.BookFlightPage.ValidateReviewIntinerary" />
-        <item itemvalue="TestNG.BookFlightPage.validateTravellersDetailsPage" />
-        <item itemvalue="TestNG.SearchFlightPageTest.validateBookFlight" />
-        <item itemvalue="TestNG.FlightPageTest.validateSearchOneWayFlight" />
-        <item itemvalue="TestNG.FlightPageTest.validateMultiCityFlight" />
+        <item itemvalue="TestNG.BookHotelPageTest.validateReviewItinerary" />
+        <item itemvalue="TestNG.BookHotelPageTest.validateGuestDetails" />
+        <item itemvalue="TestNG.SearchHotelPageTest.validateBookRooms" />
+        <item itemvalue="TestNG.HotelPageTest.validateSearchHotel" />
+        <item itemvalue="TestNG.HotelPageTest.validateSelectRooms" />
       </list>
     </recent_temporary>
   </component>
@@ -171,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664837625076</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="FlightPageTest, SearchFlightPageTest, BookFlightPageTest">
+      <created>1664841993881</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1664841993881</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -188,6 +198,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="LoginPageTest, RegistrationPageTest and FlightPageTest" />
     <MESSAGE value="FlightPageTest, SearchFlightPage, BookFlightPage" />
-    <option name="LAST_COMMIT_MESSAGE" value="FlightPageTest, SearchFlightPage, BookFlightPage" />
+    <MESSAGE value="FlightPageTest, SearchFlightPageTest, BookFlightPageTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="FlightPageTest, SearchFlightPageTest, BookFlightPageTest" />
   </component>
 </project>

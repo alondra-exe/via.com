@@ -4,6 +4,7 @@ import base.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -42,7 +43,9 @@ public class SearchFlightPageTest extends Base {
 
     @Test
     public void validateBookFlight() {
-        driver.findElement(By.xpath("//div[@class='oneway']/div[5]/div/div/div[2]/button")).click();
+        WebElement bookFlight = new WebDriverWait(driver, Duration.ofSeconds(30))
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='oneway']/div[5]/div/div/div[2]/button")));
+        bookFlight.click();
     }
 
     @AfterMethod
