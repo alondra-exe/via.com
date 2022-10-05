@@ -1,27 +1,33 @@
 package pages;
 
 import base.Base;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.time.Duration;
 
 public class BookFlightPageTest extends Base {
+    @BeforeSuite
+    public void reportConfig() {
+        reportSetUp();
+    }
     @BeforeMethod
     public void browserSetUp() {
         initialization();
         flightPageTest.validateSearchOneWayFlight();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
         searchFlightPageTest.validateBookFlight();
     }
 
     @Test
     public void validateTravellersDetails() {
+        ExtentTest test = extent.createTest("Validating Traveller's Details functionality of Book Flight Page");
         WebElement titleDropDown = driver.findElement(By.id("adult1Title"));
         Select title = new Select(titleDropDown);
         title.selectByValue(properties.getProperty("title"));
@@ -60,12 +66,25 @@ public class BookFlightPageTest extends Base {
             driver.findElement(By.id("repiceContBook")).click();
         }
         driver.findElement(By.id("makePayCTA")).click();
+        test.log(Status.PASS, "Validation of Traveller's Details functionality of Book Flight Page PASSED");
     }
 
     @Test
     public void validateReviewItinerary() {
+        ExtentTest test = extent.createTest("Validating Review Itinerary Page of Book Flight Page");
         validateTravellersDetails();
         driver.findElement(By.xpath("//div[@id='refundProtectDiv']/div[3]/div/div[4]/div[1]/div/label")).click();
         driver.findElement(By.id("confirmProceedPayBtn")).click();
+        test.log(Status.PASS, "Validation of Review Itinerary Page of Book Flight Page PASSED");
+    }
+
+    @AfterMethod
+    public void closeSetUp() {
+        closeInitialization();
+    }
+
+    @AfterSuite
+    public void generateReport() {
+        reportTearDown();
     }
 }

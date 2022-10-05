@@ -1,26 +1,31 @@
 package pages;
 
 import base.Base;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.time.Duration;
 
 public class HotelPageTest extends Base {
+    @BeforeSuite
+    public void reportConfig() {
+        reportSetUp();
+    }
+
     @BeforeMethod
     public void browserSetup() {
         initialization();
     }
 
-
     @Test
     public void validateSearchHotel() {
+        ExtentTest test = extent.createTest("Validating Search Hotel functionality of Hotel Page");
         driver.navigate().to(properties.getProperty("urlHotels"));
         WebElement destination = driver.findElement(By.id("destination"));
         actions.moveToElement(destination).click().sendKeys(properties.getProperty("destination")).pause(Duration.ofSeconds(5)).click().keyDown(Keys.DOWN).keyDown(Keys.ENTER).build().perform();
@@ -40,10 +45,16 @@ public class HotelPageTest extends Base {
         Select residence = new Select(residenceDropDown);
         residence.selectByValue(properties.getProperty("residence"));
         driver.findElement(By.xpath("/html/body/div[3]/div[3]/div/form/div[3]/div/div[10]/div[3]")).click();
+        test.log(Status.PASS, "Validation of Search Hotel functionality of Hotel Page PASSED");
     }
 
     @AfterMethod
     public void closeSetUp() {
         closeInitialization();
+    }
+
+    @AfterSuite
+    public void generateReport() {
+        reportTearDown();
     }
 }

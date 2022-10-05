@@ -1,21 +1,21 @@
 package pages;
 
 import base.Base;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-import util.ExcelReader;
+import org.testng.annotations.*;
 
-import java.io.IOException;
 import java.time.Duration;
 
 public class FlightPageTest extends Base {
-    String sheetName = "flight";
+    @BeforeSuite
+    public void reportConfig() {
+        reportSetUp();
+    }
     @BeforeMethod
     public void browserSetup() {
         initialization();
@@ -23,6 +23,7 @@ public class FlightPageTest extends Base {
 
     @Test
     public void validateSearchOneWayFlight() {
+        ExtentTest test = extent.createTest("Validating Search One Way Flight functionality of Flight Page");
         WebElement from = driver.findElement(By.id("source"));
         WebElement to = driver.findElement(By.id("destination"));
         actions.moveToElement(from).click().sendKeys(properties.getProperty("from")).pause(Duration.ofSeconds(1)).keyDown(Keys.DOWN).keyDown(Keys.ENTER).build().perform();
@@ -31,10 +32,12 @@ public class FlightPageTest extends Base {
         WebElement departureDate = driver.findElement(By.xpath("//div[@id='depart-cal']/div[4]//div[text()='29']"));
         wait.until(ExpectedConditions.visibilityOf(departureDate)).click();
         driver.findElement(By.id("search-flight-btn")).click();
+        test.log(Status.PASS, "Validation of Search One Way Flight functionality of Flight Page PASSED");
     }
 
     @Test
     public void validateSearchRoundTripFlight() {
+        ExtentTest test = extent.createTest("Validating Search Round Trip Flight functionality of Flight Page");
         driver.findElement(By.className("round-trip")).click();
         WebElement from = driver.findElement(By.id("source"));
         WebElement to = driver.findElement(By.id("destination"));
@@ -47,10 +50,12 @@ public class FlightPageTest extends Base {
         WebElement returnDate = driver.findElement(By.xpath("//div[@id='return-cal']/div[4]//div[text()='24']"));
         wait.until(ExpectedConditions.visibilityOf(returnDate)).click();
         driver.findElement(By.id("search-flight-btn")).click();
+        test.log(Status.PASS, "Validation of Search Round Trip Flight functionality of Flight Page PASSED");
     }
 
     @Test
     public void validateMultiCityFlight() {
+        ExtentTest test = extent.createTest("Validating Search Multi-city Flight functionality of Flight Page");
         driver.findElement(By.className("multi-city")).click();
         WebElement from1 = driver.findElement(By.id("source-0"));
         WebElement to1 = driver.findElement(By.id("destination-0"));
@@ -66,24 +71,16 @@ public class FlightPageTest extends Base {
         WebElement departureDate2 = driver.findElement(By.xpath("//div[@id='depart-cal-1']/div[4]//div[text()='24']"));
         wait.until(ExpectedConditions.visibilityOf(departureDate2)).click();
         driver.findElement(By.id("search-flight-btn")).click();
+        test.log(Status.PASS, "Validation of Multi-city Flight functionality of Flight Page PASSED");
     }
 
     @AfterMethod
-    public void closeSetUp(){
+    public void closeSetUp() {
         closeInitialization();
     }
 
-    @DataProvider(name = "FlightPage")
-    public Object[][] getFlightPageData() throws IOException {
-        ExcelReader reader = new ExcelReader(properties.getProperty("filePath"), sheetName);
-        int rowCount = reader.getRowCount();
-        int colCount = reader.getColCount();
-        Object[][] data = new Object[rowCount - 1][colCount];
-        for (int row = 1; row < rowCount; row++) {
-            for (int col = 0; col < colCount; col++) {
-                data[row - 1][col] = reader.getCellValue(row, col);
-            }
-        }
-        return data;
+    @AfterSuite
+    public void generateReport() {
+        reportTearDown();
     }
 }

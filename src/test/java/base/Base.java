@@ -1,5 +1,7 @@
 package base;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -33,6 +35,9 @@ public abstract class Base {
     public static SearchFlightPageTest searchFlightPageTest;
     public static HotelPageTest hotelPageTest;
     public static SearchHotelPageTest searchHotelPageTest;
+    public static ExtentReports extent;
+    public static ExtentSparkReporter reporter;
+    private static String reportPath;
 
     public Base() {
         properties = new Properties();
@@ -85,5 +90,20 @@ public abstract class Base {
 
     public static void closeInitialization() {
         driver.quit();
+    }
+
+    public static void reportSetUp() {
+        reportPath = System.getProperty("user.dir") + "/ExtentReports/reports.html";
+        reporter = new ExtentSparkReporter(reportPath);
+        reporter.config().setDocumentTitle("Via.com Test Reports");
+        reporter.config().setReportName("Automation TestNG Results on " + properties.getProperty("browser"));
+        extent = new ExtentReports();
+        extent.attachReporter(reporter);
+        extent.setSystemInfo("Tester", "Alondra Elizabeth Delgadillo Silos");
+        extent.setSystemInfo("Browser", properties.getProperty("browser"));
+    }
+
+    public void reportTearDown(){
+        extent.flush();
     }
 }

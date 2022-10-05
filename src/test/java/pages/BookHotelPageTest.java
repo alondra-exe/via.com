@@ -1,25 +1,32 @@
 package pages;
 
 import base.Base;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.time.Duration;
 
 public class BookHotelPageTest extends Base {
+    @BeforeSuite
+    public void reportConfig() {
+        reportSetUp();
+    }
+
     @BeforeMethod
     public void browserSetup() {
         initialization();
         hotelPageTest.validateSearchHotel();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
         searchHotelPageTest.validateBookRooms();
     }
 
     @Test
     public void validateGuestDetails() {
+        ExtentTest test = extent.createTest("Validating Guests Details functionality of Book Hotel Page");
         WebElement titleDropDown = driver.findElement(By.xpath("//div[@id='room1Adult1']/div/div[1]/div[1]/label/select"));
         Select title = new Select(titleDropDown);
         title.selectByValue(properties.getProperty("title"));
@@ -46,11 +53,25 @@ public class BookHotelPageTest extends Base {
         driver.findElement(By.id("contactEmail")).sendKeys(properties.getProperty("email"));
         driver.findElement(By.id("read_terms_label")).click();
         driver.findElement(By.id("makePayCTA")).click();
+        test.log(Status.PASS, "Validation of Guests Details functionality of Book Hotel Page PASSED");
     }
 
     @Test
     public void validateReviewItinerary() {
         validateGuestDetails();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+        ExtentTest test = extent.createTest("Validating Review Itinerary Page of Book Hotel Page");
         driver.findElement(By.id("confirmProceedPayBtn")).click();
+        test.log(Status.PASS, "Validation of Review Itinerary Page of Book Hotel Page PASSED");
+    }
+
+    @AfterMethod
+    public void closeSetUp() {
+        closeInitialization();
+    }
+
+    @AfterSuite
+    public void generateReport() {
+        reportTearDown();
     }
 }
