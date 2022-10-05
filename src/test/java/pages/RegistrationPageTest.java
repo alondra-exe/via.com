@@ -3,17 +3,10 @@ package pages;
 import base.Base;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
-
-import java.time.Duration;
 
 public class RegistrationPageTest extends Base {
     RegistrationPage rp;
@@ -32,7 +25,11 @@ public class RegistrationPageTest extends Base {
         ExtentTest test = extent.createTest("Validating Registration functionality of Registration Page");
         try{
             String expLogged = "Welcome Back !";
-            Assert.assertEquals(rp.Registration(), expLogged);
+            Assert.assertEquals(rp.Registration(properties.getProperty("email"),
+                    properties.getProperty("password"),
+                    properties.getProperty("name"),
+                    properties.getProperty("number-code"),
+                    properties.getProperty("phone-number")), expLogged);
             test.log(Status.PASS, "Validation of Registration functionality of Registration Page PASSED");
         }
         catch (NoSuchElementException | TimeoutException e){

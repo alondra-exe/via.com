@@ -3,10 +3,7 @@ package pages;
 import base.Base;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -16,10 +13,12 @@ public class BookHotelPageTest extends Base {
     HotelPage hp;
     SearchHotelPage shp;
     BookHotelPage bhp;
+
     @BeforeSuite
     public void reportConfig() {
         reportSetUp();
     }
+
     @BeforeMethod
     public void browserSetup() {
         initialization();
@@ -30,32 +29,38 @@ public class BookHotelPageTest extends Base {
 
     @Test
     public void validateGuestDetails() {
-        hp.SearchHotel();
+        hp.SearchHotel(properties.getProperty("destination"), properties.getProperty("nationalityCode"),
+                properties.getProperty("residence"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
         shp.BookRooms();
         ExtentTest test = extent.createTest("Validating Guests Details functionality of Book Hotel Page");
-        try{
-            Assert.assertTrue(bhp.GuestDetails());
+        try {
+            Assert.assertTrue(bhp.GuestDetails(properties.getProperty("title"), properties.getProperty("firstname"), properties.getProperty("lastname"),
+                    properties.getProperty("pan-number"), properties.getProperty("nationality"), properties.getProperty("passport-number"),
+                    properties.getProperty("day-expiry"), properties.getProperty("month-expiry"), properties.getProperty("year-expiry"),
+                    properties.getProperty("number-code"), properties.getProperty("phone-number"), properties.getProperty("email")));
             test.log(Status.PASS, "Validation of Guests Details functionality of Book Hotel Page PASSED");
-        }
-        catch (NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             test.log(Status.FAIL, "Validation of Guests Details functionality of Book Flight Page FAILED");
         }
     }
 
     @Test
     public void validateReviewItinerary() {
-        hp.SearchHotel();
+        hp.SearchHotel(properties.getProperty("destination"), properties.getProperty("nationalityCode"),
+                properties.getProperty("residence"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
         shp.BookRooms();
-        bhp.GuestDetails();
+        bhp.GuestDetails(properties.getProperty("title"), properties.getProperty("firstname"), properties.getProperty("lastname"),
+                properties.getProperty("pan-number"), properties.getProperty("nationality"), properties.getProperty("passport-number"),
+                properties.getProperty("day-expiry"), properties.getProperty("month-expiry"), properties.getProperty("year-expiry"),
+                properties.getProperty("number-code"), properties.getProperty("phone-number"), properties.getProperty("email"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
         ExtentTest test = extent.createTest("Validating Review Itinerary Page of Book Hotel Page");
-        try{
+        try {
             Assert.assertTrue(bhp.ReviewItinerary());
             test.log(Status.PASS, "Validation of Review Itinerary Page of Book Hotel Page PASSED");
-        }
-        catch (NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             test.log(Status.FAIL, "Validation of Review Itinerary Page of Book Hotel Page FAILED");
         }
 

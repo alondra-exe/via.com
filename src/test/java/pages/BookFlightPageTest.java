@@ -27,11 +27,15 @@ public class BookFlightPageTest extends Base {
 
     @Test
     public void validateTravellersDetails() {
-        fp.SearchOneWayFlight();
+        fp.SearchOneWayFlight(properties.getProperty("from"), properties.getProperty("to"));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
         sfp.BookFlight();
         ExtentTest test = extent.createTest("Validating Traveller's Details functionality of Book Flight Page");
         try{
-            Assert.assertTrue(bfp.TravellersDetails());
+            Assert.assertTrue(bfp.TravellersDetails(properties.getProperty("title"), properties.getProperty("firstname"), properties.getProperty("lastname"),
+                    properties.getProperty("day-birth"), properties.getProperty("month-birth"), properties.getProperty("year-birth"), properties.getProperty("nationality"),
+                    properties.getProperty("passport-number"), properties.getProperty("day-expiry"), properties.getProperty("month-expiry"), properties.getProperty("year-expiry"),
+                    properties.getProperty("number-code"), properties.getProperty("phone-number"), properties.getProperty("email")));
             test.log(Status.PASS, "Validation of Traveller's Details functionality of Book Flight Page PASSED");
         }
         catch (NoSuchElementException e){
@@ -41,10 +45,14 @@ public class BookFlightPageTest extends Base {
 
     @Test
     public void validateReviewItinerary() {
-        fp.SearchOneWayFlight();
-        sfp.BookFlight();
-        bfp.TravellersDetails();
+        fp.SearchOneWayFlight(properties.getProperty("from"), properties.getProperty("to"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+        sfp.BookFlight();
+        bfp.TravellersDetails(properties.getProperty("title"), properties.getProperty("firstname"), properties.getProperty("lastname"),
+                properties.getProperty("day-birth"), properties.getProperty("month-birth"), properties.getProperty("year-birth"), properties.getProperty("nationality"),
+                properties.getProperty("passport-number"), properties.getProperty("day-expiry"), properties.getProperty("month-expiry"), properties.getProperty("year-expiry"),
+                properties.getProperty("number-code"), properties.getProperty("phone-number"), properties.getProperty("email"));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         ExtentTest test = extent.createTest("Validating Review Itinerary Page of Book Flight Page");
         try{
             Assert.assertTrue(bfp.ReviewItinerary());

@@ -3,19 +3,13 @@ package pages;
 import base.Base;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import java.time.Duration;
-
 public class HotelPageTest extends Base {
     HotelPage hp;
+
     @BeforeSuite
     public void reportConfig() {
         reportSetUp();
@@ -27,14 +21,14 @@ public class HotelPageTest extends Base {
         hp = new HotelPage();
     }
 
-    @Test
+    @Test()
     public void validateSearchHotel() {
         ExtentTest test = extent.createTest("Validating Search Hotel functionality of Hotel Page");
-        try{
-            Assert.assertTrue(hp.SearchHotel());
+        try {
+            Assert.assertTrue(hp.SearchHotel(properties.getProperty("destination"), properties.getProperty("nationalityCode"),
+                    properties.getProperty("residence")));
             test.log(Status.PASS, "Validation of Search Hotel functionality of Hotel Page PASSED");
-        }
-        catch (NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             test.log(Status.FAIL, "Validation of Search Hotel functionality of Hotel Page FAILED");
         }
     }

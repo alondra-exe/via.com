@@ -11,10 +11,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class HotelPage extends Base {
-    public boolean SearchHotel() {
+    public boolean SearchHotel(String destinationPlace, String nationalityCode, String residenceCountry) {
         driver.navigate().to(properties.getProperty("urlHotels"));
         WebElement destination = driver.findElement(By.id("destination"));
-        actions.moveToElement(destination).click().sendKeys(properties.getProperty("destination")).pause(Duration.ofSeconds(5)).click().keyDown(Keys.DOWN).keyDown(Keys.ENTER).build().perform();
+        actions.moveToElement(destination).click().sendKeys(destinationPlace).pause(Duration.ofSeconds(5)).click().keyDown(Keys.DOWN).keyDown(Keys.ENTER).build().perform();
         driver.findElement(By.xpath("/html/body/div[3]/div[3]/div/form/div[3]/div/div[2]/div/div")).click();
         WebElement checkIn = driver.findElement(By.xpath("//div[@id='depart-cal']/div[3]//div[text()='24']"));
         wait.until(ExpectedConditions.visibilityOf(checkIn)).click();
@@ -26,10 +26,10 @@ public class HotelPage extends Base {
         driver.findElement(By.xpath("//div[@class='roomConfigFooter']//div[@class='done']")).click();
         WebElement nationalityDropDown = driver.findElement(By.id("nationalityCountry"));
         Select nationality = new Select(nationalityDropDown);
-        nationality.selectByValue(properties.getProperty("nationalityCode"));
+        nationality.selectByValue(nationalityCode);
         WebElement residenceDropDown = driver.findElement(By.id("residenceCountry"));
         Select residence = new Select(residenceDropDown);
-        residence.selectByValue(properties.getProperty("residence"));
+        residence.selectByValue(residenceCountry);
         driver.findElement(By.xpath("/html/body/div[3]/div[3]/div/form/div[3]/div/div[10]/div[3]")).click();
         WebElement selectRoom = new WebDriverWait(driver, Duration.ofSeconds(80))
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='0']/div[3]/div[3]/div[1]")));

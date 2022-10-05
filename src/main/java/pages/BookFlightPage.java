@@ -10,39 +10,41 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class BookFlightPage extends Base {
-    public boolean TravellersDetails() {
+    public boolean TravellersDetails(String title, String firstname, String lastname, String birthDay, String birthMonth, String birthYear,
+                                     String pNationality, String pNumber, String expiryDay, String expiryMonth, String expiryYear,
+                                     String codeNumber, String phoneNumber, String email) {
         WebElement titleDropDown = driver.findElement(By.id("adult1Title"));
-        Select title = new Select(titleDropDown);
-        title.selectByValue(properties.getProperty("title"));
-        driver.findElement(By.id("adult1FirstName")).sendKeys(properties.getProperty("firstname"));
-        driver.findElement(By.id("adult1Surname")).sendKeys(properties.getProperty("lastname"));
+        Select titleSelect = new Select(titleDropDown);
+        titleSelect.selectByValue(title);
+        driver.findElement(By.id("adult1FirstName")).sendKeys(firstname);
+        driver.findElement(By.id("adult1Surname")).sendKeys(lastname);
         WebElement dayBirthDropDown = driver.findElement(By.id("adult1DOBday"));
         Select dayBirth = new Select(dayBirthDropDown);
-        dayBirth.selectByValue(properties.getProperty("daybirth"));
+        dayBirth.selectByValue(birthDay);
         WebElement monthBirthDropDown = driver.findElement(By.id("adult1DOBmonth"));
         Select monthBirth = new Select(monthBirthDropDown);
-        monthBirth.selectByIndex(Integer.parseInt(properties.getProperty("monthbirth")));
+        monthBirth.selectByIndex(Integer.parseInt(birthMonth));
         WebElement yearBirthDropDown = driver.findElement(By.id("adult1DOByear"));
         Select yearBirth = new Select(yearBirthDropDown);
-        yearBirth.selectByValue(properties.getProperty("yearbirth"));
+        yearBirth.selectByValue(birthYear);
         WebElement passportNationalityDropDown = driver.findElement(By.id("adult1PassportNAT"));
         Select passportNationality = new Select(passportNationalityDropDown);
-        passportNationality.selectByValue(properties.getProperty("nationality"));
-        driver.findElement(By.id("adult1PassportNUM")).sendKeys(properties.getProperty("passportnumber"));
+        passportNationality.selectByValue(pNationality);
+        driver.findElement(By.id("adult1PassportNUM")).sendKeys(pNumber);
         WebElement dayExpiryDropDown = driver.findElement(By.id("adult1Pday"));
         Select dayExpiry = new Select(dayExpiryDropDown);
-        dayExpiry.selectByValue(properties.getProperty("dayexpiry"));
+        dayExpiry.selectByValue(expiryDay);
         WebElement monthExpiryDropDown = driver.findElement(By.id("adult1Pmonth"));
         Select monthExpiry = new Select(monthExpiryDropDown);
-        monthExpiry.selectByIndex(Integer.parseInt(properties.getProperty("monthexpiry")));
+        monthExpiry.selectByIndex(Integer.parseInt(expiryMonth));
         WebElement yearExpiryDropDown = driver.findElement(By.id("adult1Pyear"));
         Select yearExpiry = new Select(yearExpiryDropDown);
-        yearExpiry.selectByValue(properties.getProperty("yearexpiry"));
+        yearExpiry.selectByValue(expiryYear);
         WebElement mobileCodeDropDown = driver.findElement(By.id("ISDCodeTr"));
         Select mobileCode = new Select(mobileCodeDropDown);
-        mobileCode.selectByValue(properties.getProperty("numbercode"));
-        driver.findElement(By.id("contactMobile")).sendKeys(properties.getProperty("phonenumber"));
-        driver.findElement(By.id("contactEmail")).sendKeys(properties.getProperty("email"));
+        mobileCode.selectByValue(codeNumber);
+        driver.findElement(By.id("contactMobile")).sendKeys(phoneNumber);
+        driver.findElement(By.id("contactEmail")).sendKeys(email);
         WebElement fareChange = new WebDriverWait(driver, Duration.ofSeconds(30))
                 .until(ExpectedConditions.elementToBeClickable(driver.findElement(By.id("fareChangeMessage"))));
         if (fareChange.isDisplayed()) {

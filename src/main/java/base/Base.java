@@ -29,7 +29,6 @@ public abstract class Base {
     public static WebDriverWait wait;
     public static ExtentReports extent;
     public static ExtentSparkReporter reporter;
-    private static String reportPath;
 
     public Base() {
         properties = new Properties();
@@ -81,7 +80,7 @@ public abstract class Base {
     }
 
     public static void reportSetUp() {
-        reportPath = System.getProperty("user.dir") + "/ExtentReports/reports.html";
+        String reportPath = System.getProperty("user.dir") + "/ExtentReports/reports.html";
         reporter = new ExtentSparkReporter(reportPath);
         reporter.config().setDocumentTitle("Via.com Test Reports");
         reporter.config().setReportName("Automation TestNG Results on " + properties.getProperty("browser"));
