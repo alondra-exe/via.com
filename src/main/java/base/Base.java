@@ -14,10 +14,6 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.FlightPageTest;
-import pages.HotelPageTest;
-import pages.SearchFlightPageTest;
-import pages.SearchHotelPageTest;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -31,17 +27,13 @@ public abstract class Base {
     public static Actions actions;
     public static JavascriptExecutor js;
     public static WebDriverWait wait;
-    public static FlightPageTest flightPageTest;
-    public static SearchFlightPageTest searchFlightPageTest;
-    public static HotelPageTest hotelPageTest;
-    public static SearchHotelPageTest searchHotelPageTest;
     public static ExtentReports extent;
     public static ExtentSparkReporter reporter;
     private static String reportPath;
 
     public Base() {
         properties = new Properties();
-        String settingsPath = "./src/test/java/config/settings.properties";
+        String settingsPath = "./src/main/java/config/settings.properties";
         try {
             FileInputStream fis = new FileInputStream(settingsPath);
             properties.load(fis);
@@ -82,10 +74,6 @@ public abstract class Base {
         actions = new Actions(driver);
         js = (JavascriptExecutor) driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-        flightPageTest = new FlightPageTest();
-        searchFlightPageTest = new SearchFlightPageTest();
-        hotelPageTest = new HotelPageTest();
-        searchHotelPageTest = new SearchHotelPageTest();
     }
 
     public static void closeInitialization() {

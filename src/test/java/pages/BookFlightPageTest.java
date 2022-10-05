@@ -3,16 +3,16 @@ package pages;
 import base.Base;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.NoSuchElementException;
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.time.Duration;
 
 public class BookFlightPageTest extends Base {
+    FlightPage fp;
+    SearchFlightPage sfp;
+    BookFlightPage bfp;
     @BeforeSuite
     public void reportConfig() {
         reportSetUp();
@@ -20,67 +20,44 @@ public class BookFlightPageTest extends Base {
     @BeforeMethod
     public void browserSetUp() {
         initialization();
-        flightPageTest.validateSearchOneWayFlight();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-        searchFlightPageTest.validateBookFlight();
+        fp = new FlightPage();
+        sfp = new SearchFlightPage();
+        bfp = new BookFlightPage();
     }
 
     @Test
     public void validateTravellersDetails() {
+        fp.SearchOneWayFlight();
+        sfp.BookFlight();
         ExtentTest test = extent.createTest("Validating Traveller's Details functionality of Book Flight Page");
-        WebElement titleDropDown = driver.findElement(By.id("adult1Title"));
-        Select title = new Select(titleDropDown);
-        title.selectByValue(properties.getProperty("title"));
-        driver.findElement(By.id("adult1FirstName")).sendKeys(properties.getProperty("firstname"));
-        driver.findElement(By.id("adult1Surname")).sendKeys(properties.getProperty("lastname"));
-        WebElement dayBirthDropDown = driver.findElement(By.id("adult1DOBday"));
-        Select dayBirth = new Select(dayBirthDropDown);
-        dayBirth.selectByValue(properties.getProperty("daybirth"));
-        WebElement monthBirthDropDown = driver.findElement(By.id("adult1DOBmonth"));
-        Select monthBirth = new Select(monthBirthDropDown);
-        monthBirth.selectByIndex(Integer.parseInt(properties.getProperty("monthbirth")));
-        WebElement yearBirthDropDown = driver.findElement(By.id("adult1DOByear"));
-        Select yearBirth = new Select(yearBirthDropDown);
-        yearBirth.selectByValue(properties.getProperty("yearbirth"));
-        WebElement passportNationalityDropDown = driver.findElement(By.id("adult1PassportNAT"));
-        Select passportNationality = new Select(passportNationalityDropDown);
-        passportNationality.selectByValue(properties.getProperty("nationality"));
-        driver.findElement(By.id("adult1PassportNUM")).sendKeys(properties.getProperty("passportnumber"));
-        WebElement dayExpiryDropDown = driver.findElement(By.id("adult1Pday"));
-        Select dayExpiry = new Select(dayExpiryDropDown);
-        dayExpiry.selectByValue(properties.getProperty("dayexpiry"));
-        WebElement monthExpiryDropDown = driver.findElement(By.id("adult1Pmonth"));
-        Select monthExpiry = new Select(monthExpiryDropDown);
-        monthExpiry.selectByIndex(Integer.parseInt(properties.getProperty("monthexpiry")));
-        WebElement yearExpiryDropDown = driver.findElement(By.id("adult1Pyear"));
-        Select yearExpiry = new Select(yearExpiryDropDown);
-        yearExpiry.selectByValue(properties.getProperty("yearexpiry"));
-        WebElement mobileCodeDropDown = driver.findElement(By.id("ISDCodeTr"));
-        Select mobileCode = new Select(mobileCodeDropDown);
-        mobileCode.selectByValue(properties.getProperty("numbercode"));
-        driver.findElement(By.id("contactMobile")).sendKeys(properties.getProperty("phonenumber"));
-        driver.findElement(By.id("contactEmail")).sendKeys(properties.getProperty("email"));
-        WebElement fareChange = new WebDriverWait(driver, Duration.ofSeconds(30))
-                .until(ExpectedConditions.elementToBeClickable(driver.findElement(By.id("fareChangeMessage"))));
-        if (fareChange.isDisplayed()) {
-            driver.findElement(By.id("repiceContBook")).click();
+        try{
+            Assert.assertTrue(bfp.TravellersDetails());
+            test.log(Status.PASS, "Validation of Traveller's Details functionality of Book Flight Page PASSED");
         }
-        driver.findElement(By.id("makePayCTA")).click();
-        test.log(Status.PASS, "Validation of Traveller's Details functionality of Book Flight Page PASSED");
+        catch (NoSuchElementException e){
+            test.log(Status.FAIL, "Validation of Traveller's Details functionality of Book Flight Page FAILED");
+        }
     }
 
     @Test
     public void validateReviewItinerary() {
+        fp.SearchOneWayFlight();
+        sfp.BookFlight();
+        bfp.TravellersDetails();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
         ExtentTest test = extent.createTest("Validating Review Itinerary Page of Book Flight Page");
-        validateTravellersDetails();
-        driver.findElement(By.xpath("//div[@id='refundProtectDiv']/div[3]/div/div[4]/div[1]/div/label")).click();
-        driver.findElement(By.id("confirmProceedPayBtn")).click();
-        test.log(Status.PASS, "Validation of Review Itinerary Page of Book Flight Page PASSED");
+        try{
+            Assert.assertTrue(bfp.ReviewItinerary());
+            test.log(Status.PASS, "Validation of Review Itinerary Page of Book Flight Page PASSED");
+        }
+        catch (NoSuchElementException e){
+            test.log(Status.FAIL, "Validation of Review Itinerary Page of Book Flight Page FAILED");
+        }
     }
 
     @AfterMethod
     public void closeSetUp() {
-        closeInitialization();
+        Base.closeInitialization();
     }
 
     @AfterSuite
