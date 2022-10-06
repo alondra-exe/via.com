@@ -80,7 +80,7 @@ public abstract class Base {
     }
 
     public static void reportSetUp() {
-        String reportPath = System.getProperty("user.dir") + "/ExtentReports/reportBookHotelPage.html";
+        String reportPath = System.getProperty("user.dir") + "/ExtentReports/reports2.html";
         reporter = new ExtentSparkReporter(reportPath);
         reporter.config().setDocumentTitle("Via.com Test Reports");
         reporter.config().setReportName("Automation TestNG Results on " + properties.getProperty("browser"));

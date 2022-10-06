@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.time.Duration;
 
 public class SearchHotelPage extends Base {
+    @FindBy(xpath = "/html/body/div[8]")
+    WebElement loaded;
     @FindBy(xpath = "//div[@id='0']/div[3]/div[3]/div[1]")
     WebElement selectRoom;
     @FindBy(xpath = "//div[@id='roomHotel0']/div[1]/div/div[3]/div[2]")
@@ -21,8 +23,9 @@ public class SearchHotelPage extends Base {
     }
 
     public boolean BookRooms() {
+        webWait.until(ExpectedConditions.elementToBeClickable(loaded));
         webWait.until(ExpectedConditions.elementToBeClickable(selectRoom));
-        actions.moveToElement(selectRoom).pause(Duration.ofSeconds(30)).click().build().perform();
+        actions.moveToElement(selectRoom).pause(Duration.ofSeconds(10)).click().build().perform();
         webWait.until(ExpectedConditions.elementToBeClickable(bookRoom));
         bookRoom.click();
         return guestsDetails.isDisplayed();
