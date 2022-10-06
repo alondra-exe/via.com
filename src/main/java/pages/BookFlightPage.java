@@ -1,7 +1,6 @@
 package pages;
 
 import base.Base;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -78,7 +77,7 @@ public class BookFlightPage extends Base {
         mobileF.sendKeys(phoneNumber);
         emailF.sendKeys(email);
         actions.moveToElement(makePayCTA).pause(Duration.ofSeconds(10)).click().build().perform();
-        return driver.findElement(By.id("confirmProceedPayBtn")).isDisplayed();
+        return confirmProceedPayBtn.isDisplayed();
 
     }
 
