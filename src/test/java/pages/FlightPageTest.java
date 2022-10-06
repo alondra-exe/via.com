@@ -32,7 +32,7 @@ public class FlightPageTest extends Base {
         }
     }
 
-    @Test
+    @Test()
     public void validateSearchRoundTripFlight() {
         ExtentTest test = extent.createTest("Validating Search Round Trip Flight functionality of Flight Page");
         try {

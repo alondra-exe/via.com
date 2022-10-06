@@ -1,21 +1,30 @@
 package pages;
 
 import base.Base;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
 public class SearchHotelPage extends Base {
+    @FindBy(xpath = "//div[@id='0']/div[3]/div[3]/div[1]")
+    WebElement selectRoom;
+    @FindBy(xpath = "//div[@id='roomHotel0']/div[1]/div/div[3]/div[2]")
+    WebElement bookRoom;
+    @FindBy(xpath = "//div[@id='room1Adult1']/div/div[1]/div[2]/input")
+    WebElement guestsDetails;
+
+    public SearchHotelPage() {
+        PageFactory.initElements(driver, this);
+    }
+
     public boolean BookRooms() {
-        WebElement selectRoom = new WebDriverWait(driver, Duration.ofSeconds(60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='0']/div[3]/div[3]/div[1]")));
-        selectRoom.click();
-        WebElement bookRoom = new WebDriverWait(driver, Duration.ofSeconds(60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='roomHotel0']/div[1]/div/div[3]/div[2]")));
+        webWait.until(ExpectedConditions.elementToBeClickable(selectRoom));
+        actions.moveToElement(selectRoom).pause(Duration.ofSeconds(30)).click().build().perform();
+        webWait.until(ExpectedConditions.elementToBeClickable(bookRoom));
         bookRoom.click();
-        return driver.findElement(By.xpath("//div[@id='room1Adult1']/div/div[1]/div[2]/input")).isDisplayed();
+        return guestsDetails.isDisplayed();
     }
 }

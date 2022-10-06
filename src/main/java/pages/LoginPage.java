@@ -1,54 +1,87 @@
 package pages;
 
 import base.Base;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.Iterator;
 import java.util.Set;
 
 public class LoginPage extends Base {
+    @FindBy(xpath = "//div[@id='SignIn']")
+    WebElement loginSection;
+    @FindBy(id = "loginIdText")
+    WebElement emailElement;
+    @FindBy(id = "passwordText")
+    WebElement passwordElement;
+    @FindBy(id = "loginValidate")
+    WebElement loginButton;
+    @FindBy(id = "userNameSecondaryNav")
+    WebElement userButton;
+    @FindBy(xpath = "//div[@id='userNameSecondaryNavContent']/div/div[1]/p")
+    WebElement welcomeMessage;
+    @FindBy(id = "loginFacebook")
+    WebElement loginFacebook;
+    @FindBy(id = "email")
+    WebElement emailFacebook;
+    @FindBy(id = "pass")
+    WebElement passFacebook;
+    @FindBy(id = "loginbutton")
+    WebElement loginFacebookButton;
+    @FindBy(id = "loginGoogle")
+    WebElement loginGoogle;
+    @FindBy(id = "identifierId")
+    WebElement gmailElement;
+    @FindBy(id = "identifierNext")
+    WebElement gmailButton;
+    @FindBy(xpath = "//div[@id='password']/div[1]/div/div[1]/input")
+    WebElement gmailPass;
+    @FindBy(id = "passwordNext")
+    WebElement passwordButton;
+
+
+    public LoginPage() {
+        PageFactory.initElements(driver, this);
+    }
 
     public String Login(String email, String password) {
-        WebElement login = driver.findElement(By.xpath("//div[@id='SignIn']"));
-        actions.moveToElement(login).click().build().perform();
-        driver.findElement(By.id("loginIdText")).sendKeys(email);
-        driver.findElement(By.id("passwordText")).sendKeys(password);
-        driver.findElement(By.id("loginValidate")).click();
-        driver.findElement(By.id("userNameSecondaryNav")).click();
-        return driver.findElement(By.xpath("//div[@id='userNameSecondaryNavContent']/div/div[1]/p")).getText();
+        actions.moveToElement(loginSection).click().build().perform();
+        emailElement.sendKeys(email);
+        passwordElement.sendKeys(password);
+        loginButton.click();
+        userButton.click();
+        return welcomeMessage.getText();
     }
 
     public String LoginWithFacebook(String email, String password) {
-        WebElement login = driver.findElement(By.xpath("//div[@id='SignIn']"));
-        actions.moveToElement(login).click().build().perform();
-        driver.findElement(By.id("loginFacebook")).click();
+        actions.moveToElement(loginSection).click().build().perform();
+        loginFacebook.click();
         Set<String> windows = driver.getWindowHandles();
         Iterator<String> it = windows.iterator();
         String parentWindow = it.next();
         String childWindow = it.next();
         driver.switchTo().window(childWindow);
-        driver.findElement(By.id("email")).sendKeys(email);
-        driver.findElement(By.id("pass")).sendKeys(password);
-        driver.findElement(By.id("loginbutton")).click();
-        driver.findElement(By.id("userNameSecondaryNav")).click();
-        return driver.findElement(By.xpath("//div[@id='userNameSecondaryNavContent']/div/div[1]/p")).getText();
+        emailFacebook.sendKeys(email);
+        passFacebook.sendKeys(password);
+        loginFacebookButton.click();
+        userButton.click();
+        return welcomeMessage.getText();
     }
 
     public String LoginWithGoogle(String gmail, String gmailPassword) {
-        WebElement login = driver.findElement(By.xpath("//div[@id='SignIn']"));
-        actions.moveToElement(login).click().build().perform();
-        driver.findElement(By.id("loginGoogle")).click();
+        actions.moveToElement(loginSection).click().build().perform();
+        loginGoogle.click();
         Set<String> windows = driver.getWindowHandles();
         Iterator<String> it = windows.iterator();
         String parentWindow = it.next();
         String childWindow = it.next();
         driver.switchTo().window(childWindow);
-        driver.findElement(By.id("identifierId")).sendKeys(gmail);
-        driver.findElement(By.id("identifierNext")).click();
-        driver.findElement(By.xpath("//div[@id='password']/div[1]/div/div[1]/input")).sendKeys(gmailPassword);
-        driver.findElement(By.id("passwordNext")).click();
-        driver.findElement(By.id("userNameSecondaryNav")).click();
-        return driver.findElement(By.xpath("//div[@id='userNameSecondaryNavContent']/div/div[1]/p")).getText();
+        gmailElement.sendKeys(gmail);
+        gmailButton.click();
+        gmailPass.sendKeys(gmailPassword);
+        passwordButton.click();
+        userButton.click();
+        return welcomeMessage.getText();
     }
 }

@@ -1,2 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="H:/Via.com/via-testing"><classes><class name="pages.BookFlightPageTest"><methods><include name="validateTravellersDetails"/><include name="validateReviewItinerary"/></methods></class><class name="pages.BookHotelPageTest"><methods><include name="validateGuestDetails"/><include name="validateReviewItinerary"/></methods></class><class name="pages.FlightPageTest"><methods><include name="validateSearchOneWayFlight"/><include name="validateSearchRoundTripFlight"/><include name="validateMultiCityFlight"/></methods></class><class name="pages.HotelPageTest"><methods><include name="validateSearchHotel"/></methods></class><class name="pages.LoginPageTest"><methods><include name="validateLogin"/><include name="validateLoginWithFacebook"/><include name="validateLoginWithGoogle"/></methods></class><class name="pages.RegistrationPageTest"><methods><include name="validateRegistration"/></methods></class><class name="pages.SearchFlightPageTest"><methods><include name="validateModifyFlightSearch"/><include name="validateBookFlight"/></methods></class><class name="pages.SearchHotelPageTest"><methods><include name="validateBookRooms"/></methods></class></classes></test></suite>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" name="H:/Via.com/via-testing">
+        <classes>
+            <class name="pages.BookFlightPageTest">
+                <methods>
+                    <include name="validateTravellersDetails"/>
+                    <include name="validateReviewItinerary"/>
+                </methods>
+            </class>
+            <class name="pages.BookHotelPageTest">
+                <methods>
+                    <include name="validateGuestDetails"/>
+                    <include name="validateReviewItinerary"/>
+                </methods>
+            </class>
+            <class name="pages.FlightPageTest">
+                <methods>
+                    <include name="validateSearchOneWayFlight"/>
+                    <include name="validateSearchRoundTripFlight"/>
+                    <include name="validateMultiCityFlight"/>
+                </methods>
+            </class>
+            <class name="pages.HotelPageTest">
+                <methods>
+                    <include name="validateSearchHotel"/>
+                </methods>
+            </class>
+            <class name="pages.LoginPageTest">
+                <methods>
+                    <include name="validateLogin"/>
+                    <include name="validateLoginWithFacebook"/>
+                    <include name="validateLoginWithGoogle"/>
+                </methods>
+            </class>
+            <class name="pages.RegistrationPageTest">
+                <methods>
+                    <include name="validateRegistration"/>
+                </methods>
+            </class>
+            <class name="pages.SearchFlightPageTest">
+                <methods>
+                    <include name="validateBookFlight"/>
+                </methods>
+            </class>
+            <class name="pages.SearchHotelPageTest">
+                <methods>
+                    <include name="validateBookRooms"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

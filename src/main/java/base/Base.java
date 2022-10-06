@@ -26,7 +26,7 @@ public abstract class Base {
     public static Properties properties;
     public static Actions actions;
     public static JavascriptExecutor js;
-    public static WebDriverWait wait;
+    public static WebDriverWait webWait;
     public static ExtentReports extent;
     public static ExtentSparkReporter reporter;
 
@@ -72,7 +72,7 @@ public abstract class Base {
         }
         actions = new Actions(driver);
         js = (JavascriptExecutor) driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        webWait = new WebDriverWait(driver, Duration.ofSeconds(60));
     }
 
     public static void closeInitialization() {
@@ -80,7 +80,7 @@ public abstract class Base {
     }
 
     public static void reportSetUp() {
-        String reportPath = System.getProperty("user.dir") + "/ExtentReports/reports.html";
+        String reportPath = System.getProperty("user.dir") + "/ExtentReports/reportBookHotelPage.html";
         reporter = new ExtentSparkReporter(reportPath);
         reporter.config().setDocumentTitle("Via.com Test Reports");
         reporter.config().setReportName("Automation TestNG Results on " + properties.getProperty("browser"));
