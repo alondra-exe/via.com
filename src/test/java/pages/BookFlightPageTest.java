@@ -25,7 +25,7 @@ public class BookFlightPageTest extends Base {
         bfp = new BookFlightPage();
     }
 
-    @Test
+    @Test(priority = 1)
     public void validateTravellersDetails() {
         fp.SearchOneWayFlight(properties.getProperty("from"), properties.getProperty("to"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
@@ -43,7 +43,7 @@ public class BookFlightPageTest extends Base {
         }
     }
 
-    @Test
+    @Test(priority = 2)
     public void validateReviewItinerary() {
         fp.SearchOneWayFlight(properties.getProperty("from"), properties.getProperty("to"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
@@ -65,7 +65,7 @@ public class BookFlightPageTest extends Base {
 
     @AfterMethod
     public void closeSetUp() {
-        Base.closeInitialization();
+        closeInitialization();
     }
 
     @AfterSuite

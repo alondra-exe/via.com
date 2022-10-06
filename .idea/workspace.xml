@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be438992-b42c-4d74-b237-57dac93ff2f8" name="Changes" comment="page factory">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExtentReports/reportBookHotelPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/ExtentReports/reportBookHotelPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/BookHotelPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/BookHotelPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/config/settings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/settings.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/BookFlightPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/BookFlightPageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/BookHotelPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/BookHotelPageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/FlightPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/FlightPageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/LoginPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/LoginPageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/SearchFlightPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/SearchFlightPageTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +68,7 @@
       <recent name="pages" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.BookHotelPageTest">
+  <component name="RunManager" selected="TestNG.BookFlightPageTest">
     <configuration name="BookFlightPageTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="via-testing" />
       <extension name="coverage">
@@ -77,7 +86,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BookFlightPageTest.validateTravellersDetails" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="BookFlightPageTest.validateReviewItinerary" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="via-testing" />
       <extension name="coverage">
         <pattern>
@@ -87,7 +96,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="pages" />
       <option name="MAIN_CLASS_NAME" value="pages.BookFlightPageTest" />
-      <option name="METHOD_NAME" value="validateTravellersDetails" />
+      <option name="METHOD_NAME" value="validateReviewItinerary" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -112,7 +121,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BookHotelPageTest.validateGuestDetails" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="BookHotelPageTest.validateReviewItinerary" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="via-testing" />
       <extension name="coverage">
         <pattern>
@@ -122,7 +131,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="pages" />
       <option name="MAIN_CLASS_NAME" value="pages.BookHotelPageTest" />
-      <option name="METHOD_NAME" value="validateGuestDetails" />
+      <option name="METHOD_NAME" value="validateReviewItinerary" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -142,11 +151,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.BookHotelPageTest" />
-        <item itemvalue="TestNG.BookHotelPageTest.validateGuestDetails" />
         <item itemvalue="TestNG.BookFlightPageTest" />
+        <item itemvalue="TestNG.BookFlightPageTest.validateReviewItinerary" />
+        <item itemvalue="TestNG.BookHotelPageTest.validateReviewItinerary" />
         <item itemvalue="TestNG.H:/Via.com/via-testing/testng.xml" />
-        <item itemvalue="TestNG.BookFlightPageTest.validateTravellersDetails" />
+        <item itemvalue="TestNG.BookHotelPageTest" />
       </list>
     </recent_temporary>
   </component>
@@ -229,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665061920826</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="page factory">
+      <created>1665062108980</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1665062108980</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

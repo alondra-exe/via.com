@@ -21,7 +21,7 @@ public class LoginPageTest extends Base {
         lp = new LoginPage();
     }
 
-    @Test
+    @Test(priority = 1)
     public void validateLogin() {
         ExtentTest test = extent.createTest("Validating Login functionality of Login Page");
         String expLogged = "Welcome Back !";
@@ -29,7 +29,7 @@ public class LoginPageTest extends Base {
         test.log(Status.PASS, "Validation of Login functionality of Login Page PASSED");
     }
 
-    @Test
+    @Test(priority = 2)
     public void validateLoginWithFacebook() {
         ExtentTest test = extent.createTest("Validating Login with Facebook functionality of Login Page");
         try {
@@ -41,7 +41,7 @@ public class LoginPageTest extends Base {
         }
     }
 
-    @Test
+    @Test(priority = 3)
     public void validateLoginWithGoogle() {
         ExtentTest test = extent.createTest("Validating Login with Google functionality of Login Page");
         try {

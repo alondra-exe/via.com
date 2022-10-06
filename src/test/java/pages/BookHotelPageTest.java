@@ -27,7 +27,7 @@ public class BookHotelPageTest extends Base {
         bhp = new BookHotelPage();
     }
 
-    @Test
+    @Test(priority = 1)
     public void validateGuestDetails() {
         hp.SearchHotel(properties.getProperty("destination"), properties.getProperty("nationalityCode"),
                 properties.getProperty("residence"));
@@ -45,7 +45,7 @@ public class BookHotelPageTest extends Base {
         }
     }
 
-    @Test
+    @Test(priority = 2)
     public void validateReviewItinerary() {
         hp.SearchHotel(properties.getProperty("destination"), properties.getProperty("nationalityCode"),
                 properties.getProperty("residence"));

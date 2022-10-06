@@ -21,7 +21,7 @@ public class FlightPageTest extends Base {
         fp = new FlightPage();
     }
 
-    @Test
+    @Test(priority = 1)
     public void validateSearchOneWayFlight() {
         ExtentTest test = extent.createTest("Validating Search One Way Flight functionality of Flight Page");
         try {
@@ -32,7 +32,7 @@ public class FlightPageTest extends Base {
         }
     }
 
-    @Test()
+    @Test(priority = 2)
     public void validateSearchRoundTripFlight() {
         ExtentTest test = extent.createTest("Validating Search Round Trip Flight functionality of Flight Page");
         try {
@@ -43,7 +43,7 @@ public class FlightPageTest extends Base {
         }
     }
 
-    @Test
+    @Test(priority = 3)
     public void validateMultiCityFlight() {
         ExtentTest test = extent.createTest("Validating Search Multi-city Flight functionality of Flight Page");
         try {

@@ -40,7 +40,6 @@ public class LoginPage extends Base {
     @FindBy(id = "passwordNext")
     WebElement passwordButton;
 
-
     public LoginPage() {
         PageFactory.initElements(driver, this);
     }

@@ -22,7 +22,7 @@ public class SearchFlightPageTest extends Base {
         sfp = new SearchFlightPage();
     }
 
-    @Test
+    @Test(groups = "Flight")
     public void validateBookFlight() {
         fp.SearchOneWayFlight(properties.getProperty("from"), properties.getProperty("to"));
         ExtentTest test = extent.createTest("Validating Booking a Flight functionality of Search Flight Page");
